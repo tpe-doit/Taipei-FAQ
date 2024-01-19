@@ -6,11 +6,13 @@ defineProps(['title', 'content'])
 </script>
 
 <template>
-    <button class="fancybutton"><h1>{{ title }}</h1><p><slot></slot></p></button>
+    <button class="fancybutton"></button>
 </template>
 
 <style scoped>
 .fancybutton {
-    background-color: aqua;
+    text-align: center;
+    width: auto;
+    font-size: 22px;
 }
 </style>

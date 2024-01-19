@@ -1,7 +1,7 @@
 <script setup>
-import { onMounted } from 'vue';
-import { useAppStore } from './store/appStore';
-import { RouterView } from 'vue-router';
+import { onMounted } from "vue";
+import { useAppStore } from "./store/appStore";
+import { RouterView } from "vue-router";
 
 const appStore = useAppStore();
 
@@ -29,6 +29,6 @@ onMounted(() => {
 	width: 100vw;
 	height: 100vh;
 	height: calc(var(--vh) * 100);
-	background-color: pink;
+	background-color: white;
 }
 </style>
