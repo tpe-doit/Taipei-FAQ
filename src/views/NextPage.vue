@@ -6,9 +6,9 @@ const srcs = ['adasd', 'adsasdas', 'hello']
 
 <template>
 	<div>
-		<h1>Hello</h1>
-		<FancyButton v-for="src in srcs" :key="src" :title="src" content="好玩">hello</FancyButton>
-		<RouterLink to="/next">Next</RouterLink>
+		<h1>Next</h1>
+		<FancyButton v-for="src in srcs" :key="src" :title="src" content="好玩">helasdasd</FancyButton>
+	<RouterLink to="/">Home</RouterLink>
 	</div>
 </template>
 
