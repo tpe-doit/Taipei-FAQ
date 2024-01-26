@@ -2,6 +2,11 @@
 import FancyButton from "../components/FancyButton.vue";
 import SearchBar from "../components/SearchBar.vue";
 import CategoryButton from "../components/CategoryButton.vue";
+import { objectsArray } from "../assets/question";
+
+import { useRoute } from "vue-router";
+
+import { onMounted, ref } from "vue";
 
 const srcs = ["adasd", "adsasdas", "hello"];
 const catos = [
@@ -16,6 +21,21 @@ const catos = [
 	"科技通訊問題",
 	"安全應急管理",
 ];
+
+const route = useRoute();
+const { category } = route.params;
+
+const questions = ref([]);
+
+onMounted(() => {
+	questions.value = objectsArray.filter(
+		(obj) =>
+			obj.類別一 === category ||
+			obj.類別二 === category ||
+			obj.類別三 === category
+	);
+	console.log(questions.value);
+});
 </script>
 
 <template>
@@ -34,6 +54,7 @@ const catos = [
 				:key="cato"
 				:title="cato"
 			></CategoryButton>
+			<RouterLink to="/安全應急管理">sdffsdfsdf</RouterLink>
 		</div>
 		<div class="rightWrapper">
 			<div class="hotQuestion">
@@ -60,7 +81,7 @@ const catos = [
 				</div>
 			</div>
 			<div class="answer">
-				<h2>XXX類</h2>
+				<h2>{{ category }}類</h2>
 				<div id="first">
 					<div id="containerOne">
 						<h3 id="question">
@@ -331,5 +352,8 @@ p {
 h3 {
 	margin-top: 5px;
 	margin-bottom: 5px;
+}
+.router-link-active {
+	color: blue;
 }
 </style>

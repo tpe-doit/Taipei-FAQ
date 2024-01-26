@@ -2,7 +2,7 @@
 
 import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "../views/HomePage.vue";
-import NextPage from "../views/NextPage.vue"
+import NextPage from "../views/NextPage.vue";
 
 const routes = [
 	{
@@ -11,9 +11,9 @@ const routes = [
 		component: HomePage,
 	},
 	{
-		path: '/next',
-		name: 'next',
-		component: NextPage
+		path: "/:category",
+		name: "next",
+		component: NextPage,
 	},
 	{
 		path: "/:pathMatch(.*)*",

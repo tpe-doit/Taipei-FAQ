@@ -14,5 +14,6 @@ defineProps(['title', 'content'])
     text-align: center;
     width: auto;
     font-size: 22px;
+    
 }
 </style>
