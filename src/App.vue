@@ -1,9 +1,10 @@
 <script setup>
 import { onMounted } from "vue";
 import { useAppStore } from "./store/appStore";
-import { RouterView } from "vue-router";
+import { RouterView, useRoute } from "vue-router";
 
 const appStore = useAppStore();
+const route = useRoute();
 
 onMounted(() => {
 	appStore.checkIfMobile();
@@ -20,15 +21,15 @@ onMounted(() => {
 
 <template>
 	<div class="app">
-		<RouterView></RouterView>
+		<RouterView :key="route.fullPath"></RouterView>
 	</div>
 </template>
 
 <style lang="scss" scoped>
 .app {
 	width: 100vw;
-	height: 100vh;
-	height: calc(var(--vh) * 100);
+	min-height: 100vh;
+	min-height: calc(var(--vh) * 100);
 	background-color: white;
 }
 </style>

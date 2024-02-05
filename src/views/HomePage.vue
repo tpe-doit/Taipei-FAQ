@@ -1,5 +1,4 @@
 <script setup>
-import FancyButton from "../components/FancyButton.vue";
 import SearchBar from "../components/SearchBar.vue";
 import CategorySquare from "../components/CategorySquare.vue";
 import { srcs } from "../assets/categories";
@@ -8,12 +7,6 @@ import { newThings } from "../assets/categories";
 
 <template>
 	<div>
-		<FancyButton
-			v-for="src in srcs"
-			:key="src"
-			:title="src"
-			content="好玩"
-		></FancyButton>
 		<RouterLink to="/next">Next</RouterLink>
 		<SearchBar></SearchBar>
 		<div id="line">

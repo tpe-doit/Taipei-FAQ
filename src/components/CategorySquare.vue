@@ -1,12 +1,13 @@
 <script setup>
 import { defineProps } from "vue";
+import router from "../router";
 
 defineProps(["title", "src"]);
 </script>
 
 <template>
 	<div>
-		<RouterLink to="/next">
+		<RouterLink :to="`/${title}`">
 			<span>{{ src }}</span>
 			<h1>{{ title }}</h1>
 		</RouterLink>
