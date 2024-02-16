@@ -15,13 +15,17 @@
 	--font-s: 0.75rem;
 	--font-icon: "Material Icons Round";
 }
+@font-face {
+	font-family: "GenSenRoundedTW-M-01";
+	src: url("./GenSenRoundedTW-M-01.ttf") format("truetype");
+}
 
 * {
 	margin: 0;
 	padding: 0;
 	color: var(--color-normal-text);
 	font-family: "微軟正黑體", "Microsoft JhengHei", "Droid Sans", "Open Sans",
-		"Helvetica";
+		"Helvetica", "GenSenRoundedTW-M-01";
 }
 
 body,
@@ -32,17 +36,21 @@ body,
 
 h1 {
 	font-size: var(--font-l);
+	font-family: GenSenRoundedTW-M-01;
 }
 h2 {
 	font-size: var(--font-m);
+	font-family: GenSenRoundedTW-M-01;
 }
 h3,
 p {
 	font-size: var(--font-s);
+	font-family: GenSenRoundedTW-M-01;
 }
 
 a {
 	text-decoration: none;
+	font-family: GenSenRoundedTW-M-01;
 }
 
 button {

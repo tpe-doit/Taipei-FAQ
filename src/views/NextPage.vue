@@ -8,19 +8,7 @@ import { useRoute } from "vue-router";
 
 import { onMounted, ref } from "vue";
 import AnswerSquare from "../components/AnswerSquare.vue";
-
-const catos = [
-	"法律與賠償問題",
-	"政府組織職責",
-	"城市建設規劃",
-	"文化教育活動",
-	"環境衛生管理",
-	"交通設施服務",
-	"社會福利服務",
-	"經濟發展就業",
-	"科技通訊問題",
-	"安全應急管理",
-];
+import { newThings } from "../assets/categories";
 
 const route = useRoute();
 const { category } = route.params;
@@ -52,23 +40,31 @@ onMounted(() => {
 </script>
 
 <template>
+	<RouterLink to="/" class="toHome"
+		><img src="../../public/logo.svg" width="40" height="40" />
+		<h1>臺北市局處知識通</h1></RouterLink
+	>
+
 	<div>
-		<RouterLink to="/">Home</RouterLink>
 		<SearchBar></SearchBar>
 	</div>
 	<div class="content">
 		<div class="category">
-			<h2>類別</h2>
+			<h2>問答類別</h2>
 			<CategoryButton
-				v-for="cato in catos"
-				:key="cato"
-				:title="cato"
+				v-for="newThing in newThings"
+				:key="newThing.title"
+				:title="newThing.title"
+				:src="newThing.src"
 			></CategoryButton>
 		</div>
 		<div class="rightWrapper">
 			<div class="hotQuestion">
 				<h2>{{ category }}熱門問題</h2>
-				<div class="hotQuestion-question">
+				<div
+					class="hotQuestion-question"
+					v-if="TopQuestions.length > 0"
+				>
 					<TopQuestion
 						v-for="TopQuestion in TopQuestions"
 						:key="TopQuestion.question"
@@ -77,16 +73,28 @@ onMounted(() => {
 						:link="TopQuestion.網址"
 					></TopQuestion>
 				</div>
+				<div v-else class="noResponse">沒有結果，哭哭T~T</div>
 			</div>
 			<div class="answer">
 				<h2>{{ category }}{{ route.query.search ? "結果" : "類" }}</h2>
-				<AnswerSquare
-					v-for="question in questions"
-					:key="question.問題"
-					:title="question.問題"
-				>
-				</AnswerSquare>
+				<div v-if="questions.length > 0">
+					<AnswerSquare
+						v-for="question in questions"
+						:key="question.問題"
+						:title="question.問題"
+					>
+					</AnswerSquare>
+				</div>
+				<div v-else class="noResponse">沒有結果，哭哭T~T</div>
 			</div>
+		</div>
+	</div>
+	<div class="info">
+		<h3>2023~2024 臺北市政府資訊局大數據中心 實習生期末成果</h3>
+		<div class="link">
+			<a href="https://github.com/annieleeeee" target="_blank">@李思橙</a
+			>&nbsp;&nbsp;&nbsp;
+			<a href="https://github.com/Lauren8799" target="_blank">@吳亞融</a>
 		</div>
 	</div>
 </template>
@@ -110,7 +118,7 @@ onMounted(() => {
 }
 
 .category {
-	width: 222px;
+	width: 230px;
 	height: 540px;
 	background: #555;
 	border-radius: 20px;
@@ -119,6 +127,9 @@ onMounted(() => {
 }
 .category h2 {
 	color: #ffffff;
+	margin: 10px;
+	padding-left: 5px;
+	padding-top: 5px;
 }
 .hotQuestion {
 	width: 1050px;
@@ -140,7 +151,7 @@ onMounted(() => {
 h2 {
 	margin: 15px;
 	color: black;
-	font-size: 24px;
+	font-size: 23px;
 }
 .answer {
 	width: 1050px;
@@ -153,117 +164,50 @@ h2 {
 	margin-bottom: 10px;
 	overflow: hidden;
 }
-#topOne {
-	width: 300px;
-	height: 250px;
-	background: #ffffff;
-	margin-right: 15px;
-	margin-left: 15px;
-	border-radius: 10px;
-	overflow-y: auto;
+h3 {
+	color: gray;
+	font-size: 18px;
+	text-align: center;
 }
-
-#topTwo {
-	width: 300px;
-	height: 250px;
-	background: #ffffff;
-	margin-right: 15px;
-	margin-left: 15px;
-	border-radius: 10px;
-	overflow-y: auto;
+.link a {
+	color: gray;
+	font-size: 18px;
+	color: rgb(57, 173, 245);
 }
-
-#topThree {
-	width: 300px;
-	height: 250px;
-	background: #ffffff;
-	margin-right: 15px;
-	margin-left: 15px;
-	border-radius: 10px;
-	overflow-y: auto;
-}
-p {
-	text-align: left;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 10px;
-	width: 270px;
-	font-size: 20px;
-	color: black;
-}
-#question {
-	width: 940px;
-	font-size: 20px;
-	text-align: left;
-	margin-left: 10px;
-	color: black;
-	margin-right: 30px;
-}
-#first {
-	width: 1020px;
-	height: auto;
-	border-radius: 5px;
-	background: #ffffff;
-	margin-top: 8px;
-	margin-bottom: 8px;
-	margin-left: auto;
-	margin-right: auto;
-	display: flex;
-}
-
-#second {
-	width: 1020px;
-	height: auto;
-	border-radius: 5px;
-	background: #ffffff;
-	margin-top: 8px;
-	margin-bottom: 8px;
-	margin-left: auto;
-	margin-right: auto;
-	display: flex;
-	justify-content: left;
-}
-#answerDetail {
-	width: 940px;
-	font-size: 16px;
-	text-align: left;
-	color: #393939;
-	margin-left: 10px;
-}
-
-#detail {
-	width: 940px;
-	font-size: 16px;
-	text-align: left;
-	color: #6e6e6e;
-	margin-left: 10px;
-}
-#plusBtn {
-	background: #ffffff;
-	border: none;
-	float: right;
-	display: table-cell;
-	vertical-align: middle;
-}
-#fontPlus {
+.link {
 	display: flex;
 	justify-content: center;
 }
-
-#removeBtn {
-	background: #ffffff;
-	border: none;
-	float: right;
-	display: table-cell;
-	vertical-align: middle;
+.info {
+	padding-top: 50px;
+	padding-bottom: 50px;
 }
-
-#fontRemove {
+span {
+	font-family: var(--font-icon);
+	color: white;
+	font-size: 30px;
+	display: flex;
+	align-items: center;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+h1 {
+	font-size: 25px;
+	color: black;
+	font-weight: normal;
 	display: flex;
 	align-items: center;
 }
-h3 {
-	margin-top: 5px;
-	margin-bottom: 5px;
+.toHome {
+	font-size: 25px;
+	color: black;
+	font-weight: normal;
+	display: flex;
+	justify-content: left;
+	padding: 15px;
+}
+.noResponse {
+	color: gray;
+	margin: 15px;
 }
 </style>

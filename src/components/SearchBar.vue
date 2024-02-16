@@ -25,7 +25,7 @@ onMounted(() => {
 		<input
 			v-model="searchTerm"
 			type="text"
-			placeholder="QA"
+			placeholder="輸入搜尋"
 			id="searchTerm"
 		/>
 		<button type="submit" id="searchButton">

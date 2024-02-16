@@ -25,7 +25,7 @@ h1 {
 }
 div {
 	border: 1px solid #393939;
-	width: 230px;
+	width: 220px;
 	height: 200px;
 	border-radius: 5px;
 	box-sizing: border-box; /* 避免寬度被邊框撐大 */

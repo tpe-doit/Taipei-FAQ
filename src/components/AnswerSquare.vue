@@ -42,6 +42,7 @@ function handleRetract() {
 			{{ agency }} ｜ 點閱率：{{ hint }} ｜ 資料更新：{{ update }}
 		</div>
 		<div id="answer">{{ answer }}</div>
+		<br />
 		<div>
 			<a v-if="link" :href="link" target="_blank">原問答網址</a> |
 			{{ maintain }}
@@ -80,15 +81,17 @@ h1 {
 }
 #content {
 	color: black;
-	width: 940px;
+	width: 1000px;
 	font-size: 18px;
 	background: #ececec;
 	text-align: left;
 	margin-left: 25px;
+	overflow-y: scroll;
+	max-height: 260px;
 }
+
 #detail {
 	color: gray;
-	margin-left: 15px;
 }
 #link {
 	color: gray;
@@ -96,15 +99,14 @@ h1 {
 }
 #answer {
 	color: black;
-	width: 940px;
+	width: 980px;
 	font-size: 18px;
 	background: #ececec;
 	text-align: left;
-	margin-left: 15px;
+	line-height: 1.2;
 }
 a {
 	color: rgb(57, 173, 245);
-	margin-left: 15px;
 }
 div {
 	color: gray;

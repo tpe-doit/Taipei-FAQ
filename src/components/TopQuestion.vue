@@ -16,16 +16,18 @@ defineProps(["question", "content", "link"]);
 h1 {
 	margin: 15px;
 	color: black;
-	font-size: 24px;
+	font-size: 20px;
+	line-height: 1.4;
 }
 p {
 	text-align: left;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 10px;
-	width: 270px;
-	font-size: 20px;
+	width: 300px;
+	font-size: 18px;
 	color: black;
+	line-height: 1.2;
 }
 
 .top-question-content {
@@ -40,5 +42,6 @@ p {
 a {
 	color: rgb(57, 173, 245);
 	margin-left: 30px;
+	font-size: 20px;
 }
 </style>
