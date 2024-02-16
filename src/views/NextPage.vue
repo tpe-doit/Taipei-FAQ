@@ -31,7 +31,7 @@ onMounted(() => {
 				toString(obj["答案"]).includes(route.query.search)
 		);
 	}
-	TopQuestions.value = questions.value
+	TopQuestions.value = [...questions.value]
 		.sort((a, b) => b.點閱數 - a.點閱數)
 		.splice(0, 3);
 
@@ -40,10 +40,12 @@ onMounted(() => {
 </script>
 
 <template>
-	<RouterLink to="/" class="toHome"
-		><img src="../../public/logo.svg" width="40" height="40" />
-		<h1>臺北市局處知識通</h1></RouterLink
-	>
+	<div>
+		<RouterLink to="/" class="toHome"
+			><img src="../../public/logo.svg" width="40" height="40" />
+			<h1>臺北市局處知識通</h1></RouterLink
+		>
+	</div>
 
 	<div>
 		<SearchBar></SearchBar>
@@ -73,7 +75,9 @@ onMounted(() => {
 						:link="TopQuestion.網址"
 					></TopQuestion>
 				</div>
-				<div v-else class="noResponse">沒有結果，哭哭T~T</div>
+				<div v-else class="noResponse">
+					查無相符問答，建議使用其他關鍵字重新搜尋
+				</div>
 			</div>
 			<div class="answer">
 				<h2>{{ category }}{{ route.query.search ? "結果" : "類" }}</h2>
@@ -85,12 +89,15 @@ onMounted(() => {
 					>
 					</AnswerSquare>
 				</div>
-				<div v-else class="noResponse">沒有結果，哭哭T~T</div>
+				<div v-else class="noResponse">
+					查無相符問答，建議使用其他關鍵字重新搜尋
+				</div>
 			</div>
 		</div>
 	</div>
 	<div class="info">
 		<h3>2023~2024 臺北市政府資訊局大數據中心 實習生期末成果</h3>
+		<br />
 		<div class="link">
 			<a href="https://github.com/annieleeeee" target="_blank">@李思橙</a
 			>&nbsp;&nbsp;&nbsp;
@@ -118,8 +125,8 @@ onMounted(() => {
 }
 
 .category {
-	width: 230px;
-	height: 540px;
+	width: 205px;
+	height: 500px;
 	background: #555;
 	border-radius: 20px;
 	margin-top: 15px;
@@ -199,6 +206,7 @@ h1 {
 	align-items: center;
 }
 .toHome {
+	width: fit-content;
 	font-size: 25px;
 	color: black;
 	font-weight: normal;
@@ -209,5 +217,6 @@ h1 {
 .noResponse {
 	color: gray;
 	margin: 15px;
+	font-size: 20px;
 }
 </style>

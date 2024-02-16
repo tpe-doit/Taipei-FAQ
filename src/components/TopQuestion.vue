@@ -20,28 +20,44 @@ h1 {
 	line-height: 1.4;
 }
 p {
-	text-align: left;
+	text-align: justify;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 10px;
-	width: 300px;
+	width: 285px;
 	font-size: 18px;
 	color: black;
 	line-height: 1.2;
+	word-break: break-all;
+	letter-spacing: 2px;
 }
 
 .top-question-content {
 	width: 100%;
-	max-height: 260px;
+	height: 260px;
 	display: flex;
 	flex-direction: column;
 	background: #ffffff;
 	border-radius: 10px;
 	overflow-y: scroll;
+	max-width: 320px;
+	&::-webkit-scrollbar {
+		height: 4px;
+		width: 8px;
+	}
+	&::-webkit-scrollbar-track {
+		background-color: white;
+		border-radius: 10px;
+		margin: 20px 130px;
+	}
+	&::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		background-color: gray;
+	}
 }
 a {
 	color: rgb(57, 173, 245);
-	margin-left: 30px;
+	margin-left: 15px;
 	font-size: 20px;
 }
 </style>

@@ -15,11 +15,10 @@ defineProps(["title", "src"]);
 a {
 	color: white;
 	font-size: 22px;
-	width: 200px;
 	height: 44px;
 	display: flex;
 	justify-content: left;
-	margin-left: auto;
+	margin-left: 20px;
 	margin-right: auto;
 	align-items: center;
 }

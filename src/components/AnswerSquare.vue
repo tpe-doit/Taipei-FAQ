@@ -64,6 +64,7 @@ h1 {
 	margin-left: 10px;
 	color: black;
 	margin-right: 30px;
+	line-height: 1.2;
 }
 #question {
 	width: 1020px;
@@ -86,8 +87,22 @@ h1 {
 	background: #ececec;
 	text-align: left;
 	margin-left: 25px;
+	margin-bottom: 25px;
 	overflow-y: scroll;
 	max-height: 260px;
+	&::-webkit-scrollbar {
+		height: 4px;
+		width: 8px;
+	}
+	&::-webkit-scrollbar-track {
+		background-color: #ececec;
+		border-radius: 10px;
+		margin: 20px 130px;
+	}
+	&::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		background-color: gray;
+	}
 }
 
 #detail {
@@ -102,8 +117,10 @@ h1 {
 	width: 980px;
 	font-size: 18px;
 	background: #ececec;
-	text-align: left;
+	text-align: justify;
 	line-height: 1.2;
+	word-break: break-all;
+	letter-spacing: 2px;
 }
 a {
 	color: rgb(57, 173, 245);
