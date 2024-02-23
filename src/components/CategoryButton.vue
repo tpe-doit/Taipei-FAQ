@@ -1,6 +1,5 @@
 <script setup>
 import { defineProps } from "vue";
-import router from "../router";
 
 defineProps(["title", "src"]);
 </script>
@@ -23,10 +22,11 @@ a {
 	align-items: center;
 }
 .router-link-active {
-	color: lightgray !important;
+	color: black !important;
+	font-style: italic;
 }
 .router-link-active span {
-	color: lightgray !important;
+	color: black !important;
 }
 span {
 	font-family: var(--font-icon);

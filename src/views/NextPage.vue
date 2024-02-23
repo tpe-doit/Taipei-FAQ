@@ -34,8 +34,6 @@ onMounted(() => {
 	TopQuestions.value = [...questions.value]
 		.sort((a, b) => b.點閱數 - a.點閱數)
 		.splice(0, 3);
-
-	console.log(TopQuestions.value);
 });
 </script>
 
@@ -127,10 +125,11 @@ onMounted(() => {
 .category {
 	width: 205px;
 	height: 500px;
-	background: #555;
+	background: gray;
 	border-radius: 20px;
 	margin-top: 15px;
 	color: #ffffff;
+	margin-left: 30px;
 }
 .category h2 {
 	color: #ffffff;

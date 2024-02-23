@@ -58,6 +58,6 @@ p {
 a {
 	color: rgb(57, 173, 245);
 	margin-left: 15px;
-	font-size: 20px;
+	font-size: 18px;
 }
 </style>

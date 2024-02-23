@@ -16,7 +16,7 @@ import { newThings } from "../assets/categories";
 			<h2>問題類別</h2>
 		</div>
 		<p>
-			本網站是一個問題整合平台，統整臺北市政府各局處網站上的常見問答，讓民眾不用煩惱該到哪個局處查詢。
+			本網站是一個問題整合平台，彙整臺北市政府各局處網站上的常見問答，讓民眾不用煩惱該到哪個局處查詢。
 		</p>
 		<div class="pageOne">
 			<CategorySquare
@@ -43,7 +43,7 @@ import { newThings } from "../assets/categories";
 
 <style scoped>
 #line {
-	width: 1400px;
+	width: 1200px;
 	border-bottom: 2px solid #393939;
 	margin-left: auto;
 	margin-right: auto;
@@ -57,13 +57,13 @@ h2 {
 	padding-bottom: 13px;
 }
 .pageOne {
-	width: 1400px;
+	width: 1200px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 30px;
 	display: grid;
 	grid-template-columns: repeat(5, 1fr); /* 使每行顯示四個方塊 */
-	gap: 75px;
+	gap: 50px;
 }
 h3 {
 	color: gray;

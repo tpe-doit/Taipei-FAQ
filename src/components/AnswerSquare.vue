@@ -12,7 +12,6 @@ const link = ref("");
 const maintain = ref("");
 
 function handleExpand() {
-	console.log(props.title);
 	isExpanded.value = true;
 	const matchingObject = objectsArray.find((obj) => obj.問題 === props.title);
 	if (matchingObject) {
@@ -23,7 +22,6 @@ function handleExpand() {
 		link.value = matchingObject.網址;
 		maintain.value = matchingObject.資料維護;
 	}
-	console.log(typeof link.value);
 }
 
 function handleRetract() {
@@ -41,6 +39,7 @@ function handleRetract() {
 		<div id="detail">
 			{{ agency }} ｜ 點閱率：{{ hint }} ｜ 資料更新：{{ update }}
 		</div>
+		<br />
 		<div id="answer">{{ answer }}</div>
 		<br />
 		<div>

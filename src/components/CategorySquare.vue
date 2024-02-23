@@ -1,6 +1,5 @@
 <script setup>
 import { defineProps } from "vue";
-import router from "../router";
 
 defineProps(["title", "src"]);
 </script>
@@ -9,6 +8,7 @@ defineProps(["title", "src"]);
 	<div class="category">
 		<RouterLink :to="`/${title}`">
 			<span>{{ src }}</span>
+			<br />
 			<h1>{{ title }}</h1>
 		</RouterLink>
 	</div>
@@ -17,16 +17,18 @@ defineProps(["title", "src"]);
 <style scoped>
 span {
 	font-family: var(--font-icon);
-	color: black;
-	font-size: 100px;
+	color: white;
+	font-size: 75px;
 }
 h1 {
-	color: black;
+	color: white;
+	padding: 10px;
 }
 div {
 	border: 1px solid #393939;
-	width: 220px;
-	height: 200px;
+	background: #555555;
+	width: 200px;
+	height: 180px;
 	border-radius: 5px;
 	box-sizing: border-box; /* 避免寬度被邊框撐大 */
 	text-align: center;
