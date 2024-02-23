@@ -80,7 +80,8 @@ a {
 	justify-content: center;
 }
 .info {
-	margin-top: 220px;
+	padding-top: 50px;
+	padding-bottom: 50px;
 }
 p {
 	font-size: 20px;

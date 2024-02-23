@@ -6,7 +6,7 @@ defineProps(["title", "src"]);
 </script>
 
 <template>
-	<div>
+	<div class="category">
 		<RouterLink :to="`/${title}`">
 			<span>{{ src }}</span>
 			<h1>{{ title }}</h1>
@@ -33,5 +33,9 @@ div {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+}
+.category:hover {
+	background-color: lightgrey;
+	transition: background-color 0.5s;
 }
 </style>
