@@ -27,7 +27,7 @@ import { newThings } from "../assets/categories";
 			></CategorySquare>
 		</div>
 		<div class="info">
-			<h3>2023~2024 臺北市政府資訊局大數據中心 實習生期末成果</h3>
+			<h3>2023~2024 臺北市政府資訊局大數據中心 實習生專案</h3>
 			<br />
 			<div class="link">
 				<a href="https://github.com/annieleeeee" target="_blank"
