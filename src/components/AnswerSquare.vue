@@ -29,108 +29,107 @@ function toggleExpand() {
 </script>
 
 <template>
-	<div id="question" @click="toggleExpand">
-		<h1>{{ title }}</h1>
-		<button v-if="!isExpanded">add</button>
-		<button v-else>remove</button>
-	</div>
-	<div v-if="isExpanded" id="content">
-		<div id="detail">
-			{{ agency }} ｜ 點閱率：{{ hint }} ｜ 資料更新：{{ update }}
+	<div class="answersquare">
+		<div class="answersquare-question" @click="toggleExpand">
+			<h1>{{ title }}</h1>
+			<button v-if="!isExpanded">add</button>
+			<button v-else>remove</button>
 		</div>
-		<br />
-		<p id="answer">{{ `${answer}` }}</p>
-		<br />
-		<div>
-			<a v-if="link" :href="link" target="_blank">原問答網址</a> |
-			{{ maintain }}
+		<div v-if="isExpanded" class="answersquare-content">
+			<div class="answersquare-content-detail">
+				{{ agency }} ｜ 點閱率：{{ hint }} ｜ 資料更新：{{ update }}
+			</div>
+			<br />
+			<p class="answersquare-content-answer">{{ `${answer}` }}</p>
+			<br />
+			<div>
+				<a v-if="link" :href="link" target="_blank">原問答網址</a> |
+				{{ maintain }}
+			</div>
 		</div>
 	</div>
 </template>
 
 <style scoped lang="scss">
-#question {
-	position: relative;
-	border-radius: 5px;
-	background: #ffffff;
-	display: flex;
-	align-items: center;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-right: 45px;
-	margin: 8px 0;
-	cursor: pointer;
+.answersquare {
+	&-question {
+		position: relative;
+		border-radius: 5px;
+		background: #ffffff;
+		display: flex;
+		align-items: center;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-right: 45px;
+		margin: 8px 0;
+		cursor: pointer;
 
-	h1 {
+		h1 {
+			color: black;
+			font-size: 20px;
+			text-align: justify;
+			margin-left: 10px;
+			line-height: 1.2;
+		}
+
+		button {
+			position: absolute;
+			right: 10px;
+			font-family: var(--font-icon);
+			color: black;
+			font-size: 24px;
+		}
+	}
+
+	&-content {
 		color: black;
-		font-size: 20px;
-		text-align: justify;
-		margin-left: 10px;
-		line-height: 1.2;
+		font-size: 18px;
+		background: #ececec;
+		text-align: left;
+		margin: 20px 10px 20px 15px;
+		padding-right: 5px;
+		overflow-y: scroll;
+		max-height: 260px;
+
+		&::-webkit-scrollbar {
+			height: 4px;
+			width: 8px;
+		}
+
+		&::-webkit-scrollbar-track {
+			background-color: #ececec;
+			border-radius: 10px;
+			margin: 20px 130px;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			border-radius: 10px;
+			background-color: gray;
+		}
+
+		&-detail {
+			color: gray;
+		}
+
+		&-answer {
+			color: black;
+			font-size: 18px;
+			background: #ececec;
+			text-align: justify;
+			line-height: 1.2;
+			word-break: break-all;
+			letter-spacing: 2px;
+			white-space: pre-line
+		}
 	}
 
-	button {
-		position: absolute;
-		right: 10px;
-		font-family: var(--font-icon);
-		color: black;
-		font-size: 24px;
-	}
-}
-
-#content {
-	color: black;
-	font-size: 18px;
-	background: #ececec;
-	text-align: left;
-	margin: 20px 10px 20px 15px;
-	padding-right: 5px;
-	overflow-y: scroll;
-	max-height: 260px;
-
-	&::-webkit-scrollbar {
-		height: 4px;
-		width: 8px;
+	a {
+		color: rgb(57, 173, 245);
 	}
 
-	&::-webkit-scrollbar-track {
-		background-color: #ececec;
-		border-radius: 10px;
-		margin: 20px 130px;
+	div {
+		color: gray;
+		font-size: 18px;
 	}
-
-	&::-webkit-scrollbar-thumb {
-		border-radius: 10px;
-		background-color: gray;
-	}
-}
-
-#detail {
-	color: gray;
-}
-
-#link {
-	color: gray;
-	margin-left: 15px;
-}
-
-#answer {
-	color: black;
-	font-size: 18px;
-	background: #ececec;
-	text-align: justify;
-	line-height: 1.2;
-	word-break: break-all;
-	letter-spacing: 2px;
-	white-space: pre-line
-}
-
-a {
-	color: rgb(57, 173, 245);
-}
-
-div {
-	color: gray;
-	font-size: 18px;
 }
 </style>

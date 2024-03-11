@@ -1,4 +1,4 @@
-export const newThings = [
+export const categories = [
 	{
 		title: "法律賠償問題",
 		src: "gavel",

@@ -8,7 +8,7 @@ import TopQuestion from "../components/TopQuestion.vue";
 import AnswerSquare from "../components/AnswerSquare.vue";
 
 import { objectsArray } from "../assets/question";
-import { newThings } from "../assets/categories";
+import { categories } from "../assets/categories";
 
 const route = useRoute();
 const { category } = route.params;
@@ -38,49 +38,49 @@ onMounted(() => {
 </script>
 
 <template>
-	<div class="base">
+	<div class="answerspage">
 		<div>
-			<RouterLink to="/" class="toHome"><img src="../../public/logo.svg" width="30" height="30" />
+			<RouterLink to="/" class="answerspage-home"><img src="../../public/logo.svg" width="30" height="30" />
 				<h1>臺北市局處知識通</h1>
 			</RouterLink>
 		</div>
 		<div>
 			<SearchBar></SearchBar>
 		</div>
-		<div class="content">
-			<div class="category">
+		<div class="answerspage-content">
+			<div class="answerspage-content-category">
 				<h2>問答類別</h2>
-				<CategoryButton v-for="newThing in newThings" :key="newThing.title" :title="newThing.title"
-					:src="newThing.src"></CategoryButton>
+				<CategoryButton v-for="category in categories" :key="category.title" :title="category.title"
+					:src="category.src"></CategoryButton>
 			</div>
-			<div class="rightWrapper">
-				<div class="hotQuestion">
+			<div class="answerspage-content-cont">
+				<div class="answerspage-content-hot">
 					<h2>{{ category }}熱門問題</h2>
-					<div class="hotQuestion-question" v-if="TopQuestions.length > 0">
+					<div class="answerspage-content-hot-question" v-if="TopQuestions.length > 0">
 						<TopQuestion v-for="TopQuestion in TopQuestions" :key="TopQuestion.question"
 							:question="TopQuestion.問題" :content="TopQuestion.答案" :link="TopQuestion.網址"></TopQuestion>
 					</div>
-					<div v-else class="noResponse">
+					<div v-else class="answerspage-content-noresponse">
 						查無相符問答，建議使用其他關鍵字重新搜尋
 					</div>
 				</div>
-				<div class="answer">
+				<div class="answerspage-content-answer">
 					<h2>{{ category }}{{ route.query.search || route.query.search === "" ? "結果" : "類" }}</h2>
 					<div v-if="questions.length > 0">
 						<p>共 {{ questions.length }} 筆問題</p>
 						<AnswerSquare v-for="question in questions" :key="question.問題" :title="question.問題">
 						</AnswerSquare>
 					</div>
-					<div v-else class="noResponse">
+					<div v-else class="answerspage-content-noresponse">
 						查無相符問答，建議使用其他關鍵字重新搜尋
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="info">
+		<div class="answerspage-info">
 			<h3>2023~2024 臺北市政府資訊局大數據中心 實習生專案</h3>
 			<br />
-			<div class="link">
+			<div class="answerspage-info-link">
 				<a href="https://github.com/annieleeeee" target="_blank">@李思橙</a>&nbsp;&nbsp;&nbsp;
 				<a href="https://github.com/Lauren8799" target="_blank">@吳亞融</a>
 			</div>
@@ -89,61 +89,73 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
-.base {
+.answerspage {
 	width: 1200px;
 	margin-left: auto;
 	margin-right: auto;
-}
 
-.toHome {
-	display: flex;
-	padding: 15px;
-	padding-left: 0;
-	column-gap: 10px;
-
-	h1 {
-		font-size: 25px;
-		color: black;
-		font-weight: normal;
+	&-home {
 		display: flex;
-		align-items: center;
-		user-select: none;
-	}
-}
-
-.content {
-	width: 100%;
-	height: auto;
-	border: 10px;
-	margin-top: 30px;
-	display: grid;
-	grid-template-columns: 200px 1fr;
-	column-gap: 20px;
-
-	.category {
-		height: fit-content;
-		background: gray;
-		border-radius: 20px;
-		color: #ffffff;
+		column-gap: 10px;
 		padding: 15px;
+		padding-left: 0;
 
-		h2 {
-			color: #ffffff;
-			font-size: 24px;
-			margin-bottom: 8px;
+		h1 {
+			display: flex;
+			align-items: center;
+			color: black;
+			font-size: 25px;
+			font-weight: normal;
+			user-select: none;
 		}
 	}
 
-	.rightWrapper {
-		width: calc(100% - 35px);
-		display: flex;
-		flex-direction: column;
-		row-gap: 20px;
+	&-content {
+		width: 100%;
+		height: auto;
+		display: grid;
+		grid-template-columns: 200px 1fr;
+		column-gap: 20px;
+		margin-top: 30px;
+		border: 10px;
 
-		.hotQuestion {
+		&-category {
+			height: fit-content;
+			padding: 15px;
+			border-radius: 20px;
+			background: gray;
+			color: #ffffff;
+
+			h2 {
+				margin-bottom: 8px;
+				color: #ffffff;
+				font-size: 24px;
+			}
+		}
+
+		&-cont {
+			width: calc(100% - 35px);
+			display: flex;
+			flex-direction: column;
+			row-gap: 20px;
+
+			h2 {
+				margin-bottom: 15px;
+				color: black;
+				font-size: 24px;
+			}
+
+			p {
+				margin-bottom: 15px;
+				color: gray;
+				font-size: 1rem;
+			}
+		}
+
+		&-hot {
+			padding: 15px;
 			border-radius: 20px;
 			background: #ececec;
-			padding: 15px;
 
 			&-question {
 				display: flex;
@@ -153,95 +165,79 @@ onMounted(() => {
 			}
 		}
 
-		.answer {
+		&-answer {
 			height: auto;
+			padding: 15px;
 			border-radius: 20px;
 			background: #ececec;
 			overflow: hidden;
-			padding: 15px;
 		}
 
-		h2 {
-			color: black;
-			font-size: 24px;
-			margin-bottom: 15px;
-		}
-
-		p {
+		&-noresponse {
+			margin: 20px 0 10px;
 			color: gray;
-			font-size: 1rem;
-			margin-bottom: 15px;
+			font-size: 20px;
 		}
 	}
-}
 
-.info {
-	padding-top: 50px;
-	padding-bottom: 50px;
+	&-info {
+		padding-top: 50px;
+		padding-bottom: 50px;
 
-	h3 {
-		color: gray;
-		font-size: 18px;
-		text-align: center;
-	}
+		h3 {
+			color: gray;
+			font-size: 18px;
+			text-align: center;
+		}
 
-	.link a {
-		color: gray;
-		font-size: 18px;
-		color: rgb(57, 173, 245);
-	}
-
-	.link {
-		display: flex;
-		justify-content: center;
-	}
-}
-
-.noResponse {
-	color: gray;
-	margin: 20px 0 10px;
-	font-size: 20px;
-}
-
-@media (max-width: 1280px) {
-	.base {
-		width: 90vw;
-		max-width: 90vw;
-	}
-
-	.content {
-		grid-template-columns: 1fr;
-		row-gap: 20px;
-
-		.category {
-			position: relative;
-			justify-content: center;
+		&-link {
 			display: flex;
-			flex-wrap: wrap;
-			padding-top: 48px;
-			column-gap: 25px;
+			justify-content: center;
 
-			h2 {
-				position: absolute;
-				top: 15px;
+			a {
+				color: rgb(57, 173, 245);
+				font-size: 18px;
 			}
 		}
+	}
 
-		.rightWrapper {
-			width: 100%;
+
+	@media (max-width: 1280px) {
+		width: 90vw;
+		max-width: 90vw;
+
+		&-content {
+			grid-template-columns: 1fr;
+			row-gap: 20px;
+
+			&-category {
+				position: relative;
+				display: flex;
+				justify-content: center;
+				column-gap: 25px;
+				flex-wrap: wrap;
+				padding-top: 48px;
+
+				h2 {
+					position: absolute;
+					top: 15px;
+				}
+			}
+
+			&-cont {
+				width: 100%;
+			}
 		}
 	}
-}
 
-@media (max-width: 750px) {
-	.content {
-		.category {
-			justify-content: space-around;
-			column-gap: 0;
-		}
+	@media (max-width: 750px) {
+		&-content {
+			&-category {
+				justify-content: space-around;
+				column-gap: 0;
+			}
 
-		.rightWrapper {
-			.hotQuestion-question {
+			&-hot-question {
 				display: flex;
 				flex-direction: column;
 				justify-content: space-between;
@@ -250,4 +246,4 @@ onMounted(() => {
 		}
 	}
 }
-</style>import { query } from "express";
+</style>

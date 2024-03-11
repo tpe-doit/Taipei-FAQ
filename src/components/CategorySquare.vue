@@ -5,7 +5,7 @@ defineProps(["title", "src"]);
 </script>
 
 <template>
-	<div class="category">
+	<div class="categorysquare">
 		<RouterLink :to="`/${title}`">
 			<span>{{ src }}</span>
 			<br />
@@ -15,64 +15,59 @@ defineProps(["title", "src"]);
 </template>
 
 <style scoped lang="scss">
-span {
-	font-family: var(--font-icon);
-	color: white;
-	font-size: 75px;
-}
-
-h1 {
-	color: white;
-	padding: 10px;
-}
-
-div {
-	border: 1px solid #393939;
-	background: #555555;
+.categorysquare {
 	width: 200px;
 	height: 180px;
-	border-radius: 5px;
-	box-sizing: border-box;
-	/* 避免寬度被邊框撐大 */
-	text-align: center;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-}
+	border-radius: 5px;
+	border: 1px solid #393939;
+	background: #555555;
+	text-align: center;
+	box-sizing: border-box;
 
-.category:hover {
-	background-color: var(--color-complement-text);
-	transition: background-color 0.3s;
-	cursor: pointer;
-}
+	&:hover {
+		background-color: var(--color-complement-text);
+		transition: background-color 0.3s;
+		cursor: pointer;
+	}
 
-@media screen and (max-width: 1280px) {
-	div {
+	span {
+		color: white;
+		font-family: var(--font-icon);
+		font-size: 75px;
+	}
+
+	h1 {
+		padding: 10px;
+		color: white;
+	}
+
+	@media screen and (max-width: 1280px) {
 		width: 180px;
 		height: 170px;
+
+		span {
+			font-size: 70px;
+		}
+
+		h1 {
+			font-size: 20px;
+		}
 	}
 
-	span {
-		font-size: 70px;
-	}
-
-	h1 {
-		font-size: 20px;
-	}
-}
-
-@media screen and (max-width: 750px) {
-	div {
+	@media screen and (max-width: 750px) {
 		width: 150px;
 		height: 140px;
-	}
 
-	span {
-		font-size: 60px;
-	}
+		span {
+			font-size: 60px;
+		}
 
-	h1 {
-		font-size: 15px;
+		h1 {
+			font-size: 15px;
+		}
 	}
 }
 </style>

@@ -1,7 +1,7 @@
 {
-	"name": "youbike-display",
+	"name": "taipei-faq",
 	"private": true,
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
@@ -21,7 +21,8 @@
 		"@vitejs/plugin-vue": "^4.2.3",
 		"eslint-plugin-vue": "^9.17.0",
 		"sass": "^1.66.1",
-		"vite": "^4.4.5"
+		"vite": "^4.4.5",
+		"vite-plugin-compression": "^0.5.1"
 	},
 	"browserslist": [
 		"> 1%",
