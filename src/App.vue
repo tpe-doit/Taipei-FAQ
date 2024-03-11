@@ -2,6 +2,7 @@
 import { onMounted } from "vue";
 import { useAppStore } from "./store/appStore";
 import { RouterView, useRoute } from "vue-router";
+import AnswerItem from "./components/AnswerItem.vue";
 
 const appStore = useAppStore();
 const route = useRoute();
@@ -21,6 +22,7 @@ onMounted(() => {
 
 <template>
 	<div class="app">
+		<AnswerItem />
 		<RouterView :key="route.fullPath"></RouterView>
 	</div>
 </template>

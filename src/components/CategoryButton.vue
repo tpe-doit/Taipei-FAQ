@@ -14,20 +14,20 @@ defineProps(["title", "src"]);
 a {
 	color: white;
 	font-size: 22px;
-	height: 44px;
+	padding: 8px 0;
 	display: flex;
 	justify-content: left;
-	margin-left: 20px;
-	margin-right: auto;
 	align-items: center;
 }
+
 .router-link-active {
 	color: black !important;
-	font-style: italic;
 }
+
 .router-link-active span {
 	color: black !important;
 }
+
 span {
 	font-family: var(--font-icon);
 	color: white;
@@ -36,5 +36,11 @@ span {
 	justify-content: center;
 	align-items: center;
 	margin-right: 10px;
+}
+
+@media (max-width: 750px) {
+	a {
+		font-size: 18px;
+	}
 }
 </style>
