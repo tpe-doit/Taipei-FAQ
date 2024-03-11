@@ -57,8 +57,8 @@ onMounted(() => {
 				<div class="answerspage-content-hot">
 					<h2>{{ category }}熱門問題</h2>
 					<div class="answerspage-content-hot-question" v-if="TopQuestions.length > 0">
-						<TopQuestion v-for="TopQuestion in TopQuestions" :key="TopQuestion.question"
-							:question="TopQuestion.問題" :content="TopQuestion.答案" :link="TopQuestion.網址"></TopQuestion>
+						<TopQuestion v-for="Top in TopQuestions" :key="Top.question" :question="Top.問題"
+							:content="Top.答案" :link="Top.網址"></TopQuestion>
 					</div>
 					<div v-else class="answerspage-content-noresponse">
 						查無相符問答，建議使用其他關鍵字重新搜尋

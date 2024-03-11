@@ -65,8 +65,8 @@ import { categories } from "../assets/categories";
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		column-gap: 50px;
-		row-gap: 50px
+		column-gap: 10px;
+		row-gap: 10px
 	}
 
 	&-info {
@@ -109,8 +109,8 @@ import { categories } from "../assets/categories";
 		max-width: 90vw;
 
 		&-content {
-			column-gap: 30px;
-			row-gap: 30px;
+			column-gap: 10px;
+			row-gap: 10px;
 		}
 	}
 }
